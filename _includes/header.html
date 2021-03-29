@@ -29,9 +29,9 @@
             {% if p.title and p.lang == page.lang and (p.group == "product-group" ) %}
               <!-- Detect active page by url -->
               {% if (page.url == p.url) %}
-                <a class="pb01 pr025 act" href="{{ p.url | prepend: site.baseurl }}">{{ p.title }}</a>
+                <a class="py01 pr04 act" href="{{ p.url | prepend: site.baseurl }}">{{ p.title }}</a>
               {% else %}
-                <a class="pb01 pr025" href="{{ p.url | prepend: site.baseurl }}">{{ p.title }}</a>
+                <a class="py01 pr04" href="{{ p.url | prepend: site.baseurl }}">{{ p.title }}</a>
               {% endif %}
             {% endif %}
           {% endfor %}
@@ -52,9 +52,9 @@
             {% if p.title and p.lang == page.lang and (p.group == "about" or p.group == "contact" or p.group == "reference" ) %}
               <!-- Detect active page by url -->
               {% if (page.url == p.url) %}
-                <a class="pb01 pr025 act" href="{{ p.url | prepend: site.baseurl }}">{{ p.title }}</a>
+                <a class="py01 pr04 act" href="{{ p.url | prepend: site.baseurl }}">{{ p.title }}</a>
               {% else %}
-                <a class="pb01 pr025" href="{{ p.url | prepend: site.baseurl }}">{{ p.title }}</a>
+                <a class="py01 pr04" href="{{ p.url | prepend: site.baseurl }}">{{ p.title }}</a>
               {% endif %}
             {% endif %}
           {% endfor %}
@@ -86,9 +86,9 @@
                 {% if twin_url and p.lang %}
                   <!-- Detect current page by language -->
                   {% if page.lang == p.lang %}
-                    <a class="pyr025 act ttu" href="{{ twin_url | replace:" index.html "," " | prepend: site.baseurl }}" hreflang="{{ p.lang }}" lang="{{ p.lang }}">{{ p.lang }}</a>
+                    <a class="py01 pr03 act ttu" href="{{ twin_url | replace:" index.html "," " | prepend: site.baseurl }}" hreflang="{{ p.lang }}" lang="{{ p.lang }}">{{ p.lang }}</a>
                   {% else %}
-                    <a class="pyr025 ttu" href="{{ twin_url | replace:" index.html "," " | prepend: site.baseurl }}" hreflang="{{ p.lang }}" lang="{{ p.lang }}">{{ p.lang }}</a>
+                    <a class="py01 pr03 ttu" href="{{ twin_url | replace:" index.html "," " | prepend: site.baseurl }}" hreflang="{{ p.lang }}" lang="{{ p.lang }}">{{ p.lang }}</a>
                   {% endif %}
                 {% endif %}
                 {% assign counter=counter | plus:1 %}
