@@ -1,11 +1,43 @@
 ---
-layout: error
-title: Server Error
+title: 500
+subtitle: Server error
 permalink: /500.html
+layout: error
+published: true
 group: error
 lang: en
 language: English
 ---
-<h1 class="pt-3">500</h1>
-<p class="mt-1 mb-3"><strong>{{ page.title }}</strong></p>
-<p class="mt-1 mb-3">Looks like something went wrong!<br>In the meantime, try refreshing.</p>
+<main class="p1">
+  <div class="ctr">
+
+    <div class="row">
+      <div class="col cd9 ofd3">
+        <h1 class="h1">{{ page.title }}</h1>
+        {% if page.subtitle %}<h2 class="h2">{{ page.subtitle }}</h2>{% endif %}
+      </div>
+    </div>
+
+  </div>
+</main>
+
+
+<div class="px1">
+  <div class="ctr">
+
+    <div class="row">
+      <div class="col cd9 ofd3">
+        <p>Zdá sa, že sa niečo pokazilo!<br>Skúste prosím stránku obnoviť.</p>
+        <a href="{{ site.url }}{{ site.baseurl }}">Prejdite na úvodnú stránku →</a>
+      </div>
+    </div>
+
+    <div class="row pt05">
+      <div class="col cd9 ofd3">
+        <p>Looks like something went wrong!<br>In the meantime, try refreshing.</p>
+        <a href="{{ site.url }}{{ site.baseurl }}">Go to the home page →</a>
+      </div>
+    </div>
+
+  </div>
+</div>

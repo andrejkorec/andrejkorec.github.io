@@ -4,41 +4,75 @@
 {% assign index_subtitle = ind[0].subtitle %}
 {% assign index_url = ind[0].url %}
 
-<header class="header header--fixed headroom headroom--pinned">
-  <div class="container-fluid">
-    <div class="row py-3">
-      <div class="col-xs-12 text-xs-center">
-        <div class="dib">
+<header class="px1">
+
+  <div class="ctr">
+    <div class="row">
+      <div class="col cd9 ofd3">
 
           <!-- Site name -->
-          <div class="float-lg-left pb-1 pb-lg-0 pr-lg-2">
-            <a class="p-03" href="{{ index_url | replace:"index.html","" | prepend: site.baseurl }}">{{ index_title }}</a>
-          </div>
+          <a class="pyr01 h2" href="{{ index_url | replace:"index.html","" | prepend: site.baseurl }}">{{ index_title }}</a>
           <!-- End of Site name -->
 
-          <!-- Main menu -->
-
-          <nav class="float-lg-left pb-1 pb-lg-0 pr-lg-2">
-            {% assign pages = site.pages | sort: "order" %}
-            {% for p in pages %}
-              {% if p.title and p.lang == page.lang and (p.group == "about" or p.group == "painting" or p.group == "drawing" or p.group == "playground" or p.group == "contact") %}
+      </div>
+    </div>
+  </div>
 
 
-                <!-- Detect active page by url -->
-                {% if (page.url == p.url) or (page.group == p.children) %}
-                  <a class="p-03 active" href="{{ p.url | prepend: site.baseurl }}">{{ p.title }}</a>
-                {% else %}
-                  <a class="p-03" href="{{ p.url | prepend: site.baseurl }}">{{ p.title }}</a>
-                {% endif %}
+  <div class="ctr">
+    <div class="row">
+      <div class="col cd9 ofd3">
+
+          <!-- Products menu -->
+          {% assign pages = site.pages | sort: "order" %}
+          {% for p in pages %}
+            {% if p.title and p.lang == page.lang and (p.group == "product-group" ) %}
+              <!-- Detect active page by url -->
+              {% if (page.url == p.url) %}
+                <a class="pb01 pr025 act" href="{{ p.url | prepend: site.baseurl }}">{{ p.title }}</a>
+              {% else %}
+                <a class="pb01 pr025" href="{{ p.url | prepend: site.baseurl }}">{{ p.title }}</a>
               {% endif %}
-            {% endfor %}
-          </nav>
-          <!-- End of Main menu -->
+            {% endif %}
+          {% endfor %}
+          <!-- End of Products menu -->
+
+      </div>
+    </div>
+  </div>
+
+
+  <div class="ctr">
+    <div class="row">
+      <div class="col cd9 ofd3">
+
+          <!-- About menu -->
+          {% assign pages = site.pages | sort: "order" %}
+          {% for p in pages %}
+            {% if p.title and p.lang == page.lang and (p.group == "about" or p.group == "contact" or p.group == "reference" ) %}
+              <!-- Detect active page by url -->
+              {% if (page.url == p.url) %}
+                <a class="pb01 pr025 act" href="{{ p.url | prepend: site.baseurl }}">{{ p.title }}</a>
+              {% else %}
+                <a class="pb01 pr025" href="{{ p.url | prepend: site.baseurl }}">{{ p.title }}</a>
+              {% endif %}
+            {% endif %}
+          {% endfor %}
+          <!-- End of About menu -->
+
+      </div>
+    </div>
+  </div>
+
+
+  <div class="ctr">
+    <div class="row pb05">
+      <div class="col cd9 ofd3">
 
           <!-- Language menu -->
-          <nav class="float-lg-left">
-            {% assign counter = 0 %}
-            {% assign pages = (site.pages | sort: "order" | where: "group" , "index") %}
+          {% assign counter = 0 %}
+          {% assign pages = (site.pages | sort: "order" | where: "group" , "index" | where: "published" , "true") %}
+          {% if pages.size > 1 %}
             {% for p in pages %}
               {% if page.group == "index" or page.group == "error" %}
                 {% if counter == 0 %}
@@ -52,18 +86,19 @@
                 {% if twin_url and p.lang %}
                   <!-- Detect current page by language -->
                   {% if page.lang == p.lang %}
-                    <a class="p-03 active" href="{{ twin_url | replace:" index.html "," " | prepend: site.baseurl }}">{{ p.language }}</a>
+                    <a class="pyr025 act ttu" href="{{ twin_url | replace:" index.html "," " | prepend: site.baseurl }}" hreflang="{{ p.lang }}" lang="{{ p.lang }}">{{ p.lang }}</a>
                   {% else %}
-                    <a class="p-03" href="{{ twin_url | replace:" index.html "," " | prepend: site.baseurl }}">{{ p.language }}</a>
+                    <a class="pyr025 ttu" href="{{ twin_url | replace:" index.html "," " | prepend: site.baseurl }}" hreflang="{{ p.lang }}" lang="{{ p.lang }}">{{ p.lang }}</a>
                   {% endif %}
                 {% endif %}
                 {% assign counter=counter | plus:1 %}
             {% endfor %}
-          </nav>
+          {% endif %}
           <!-- End of Language menu -->
 
-        </div>
       </div>
     </div>
   </div>
+
+
 </header>

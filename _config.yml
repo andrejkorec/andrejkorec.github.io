@@ -13,11 +13,11 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: Eva Mikulášová
-subtitle: painter
+title: Andrej Korec
+subtitle: výrobca maliarskych plátien
 author: Pavol Mikuláš
-email: fgehejdgbhajck@gegvjahmjigkhujlgajshojvga.gcom
-description: "Eva Mikulášová is a painter, based in Bratislava, Slovakia."
+email: bmail@andrbjforbc.sf
+description: "Andrej Korec výrobca maliarskych plátien."
 
 
 # If you're hosting your site at a Project repository on GitHub pages
@@ -29,24 +29,22 @@ baseurl: "" # the subpath of your site, e.g. /blog
 # the base hostname & protocol for your site
 # Your website URL (e.g. http://barryclark.github.io or http://www.barryclark.co)
 # Used for Sitemap.xml and your RSS feed
-url: "http://www.evamikulasova.com"
+url: "http://www.andrejkorec.sk"
 
 
 # Enter your Google Analytics web tracking code (e.g. UA-6580555-1) to activate tracking
-google_analytics_tracking_id: "UA-11826780-1"
+google_analytics_tracking_id: "UA-12884439-11"
 
 
 # Includes links to social in the footer
 social-links:
-    - name: Flickr
-      url: http://www.flickr.com/photos/vincentvin
-    - name: iStock
-      url: "http://www.istockphoto.com/photos/svetilka?assettype=image&excludenudity=true&mediatype=photography,illustration&phrase=svetilka&sort=best"
+    - name: Facebook
+      url: https://www.facebook.com/andrej.korec.96/
 
 
 timezone: Europe/Bratislava
-lang: en
-language: English
+lang: sk
+language: Slovensky
 
 # Permalinks
 # For more see: http://jekyllrb.com/docs/permalinks/
@@ -68,8 +66,8 @@ kramdown:
 
 #theme: ""
 backgroundColor: "#fafafa"
-themeColor: "#d94ca3"
-fontColor: "#050505"
+themeColor: "#07f"
+fontColor: "#000"
 
 # Compress html files
 compress_html:

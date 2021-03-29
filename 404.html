@@ -1,11 +1,49 @@
 ---
-layout: error
-title: Page not found
+title: 404
+subtitle: Toto asi nie je stránka, ktorú hľadáte.
 permalink: /404.html
+layout: error
+published: true
 group: error
-lang: en
-language: English
+lang: sk
+language: Slovensky
+og-locale: sk_SK
 ---
-<h1 class="pt-3">404</h1>
-<p class="mt-1 mb-3"><strong>{{ page.title }}</strong></p>
-<p class="mt-1 mb-3">Sorry, that page does not exist!</p>
+<main class="p1">
+  <div class="ctr">
+
+    <div class="row">
+      <div class="col cd9 ofd3">
+        <h1 class="h1">{{ page.title }}</h1>
+        {% if page.subtitle %}<h2 class="h2">{{ page.subtitle }}</h2>{% endif %}
+      </div>
+    </div>
+
+  </div>
+</main>
+
+
+<div class="px1">
+  <div class="ctr">
+
+    <div class="row">
+      <div class="col cd9 ofd3">
+        <p>Prepáčte, ale stránku sa mi nepodarilo nájsť nájsť.</p>
+        <a href="{{ site.url }}{{ site.baseurl }}">Prejdite na úvodnú stránku →</a>
+      </div>
+    </div>
+
+    <div class="row pt05">
+      <div class="col cd9 ofd3">
+        <p>Sorry, I can't find that page!</p>
+        <a href="{{ site.url }}{{ site.baseurl }}">Go to the home page →</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+{% include products-tiles.html %}
+
+{% include footer.html %}

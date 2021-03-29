@@ -1,11 +1,43 @@
 ---
-layout: error
-title: Permission Denied
+title: 403
+subtitle: Prístup zamietnutý
 permalink: /403.html
+layout: error
+published: true
 group: error
 lang: en
 language: English
 ---
-<h1 class="pt-3">403</h1>
-<p class="mt-1 mb-3"><strong>{{ page.title }}</strong></p>
-<p class="mt-1 mb-3">You do not have permission to retrieve the URL or link you requested.</p>
+<main class="p1">
+  <div class="ctr">
+
+    <div class="row">
+      <div class="col cd9 ofd3">
+        <h1 class="h1">{{ page.title }}</h1>
+        {% if page.subtitle %}<h2 class="h2">{{ page.subtitle }}</h2>{% endif %}
+      </div>
+    </div>
+
+  </div>
+</main>
+
+
+<div class="px1">
+  <div class="ctr">
+
+    <div class="row">
+      <div class="col cd9 ofd3">
+        <p>Nemáte povolenie na získanie požadovanej adresy URL alebo odkazu.</p>
+        <a href="{{ site.url }}{{ site.baseurl }}">Prejdite na úvodnú stránku →</a>
+      </div>
+    </div>
+
+    <div class="row pt05">
+      <div class="col cd9 ofd3">
+        <p>You do not have permission to retrieve the URL or link you requested.</p>
+        <a href="{{ site.url }}{{ site.baseurl }}">Go to the front page →</a>
+      </div>
+    </div>
+
+  </div>
+</div>

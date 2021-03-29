@@ -11,21 +11,21 @@ layout: compress
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon.png">
     <meta name="msapplication-TileImage" content="/mstile-144x144.png">
-    <title>{{ page.title }}</title>
-    <link rel="stylesheet" type="text/css" href="{{ "/css/styles.css" | prepend: site.baseurl }}">
+
+    <!-- Title -->
+    {% if page.title %}
+      <title>{{ page.title }}</title>
+    {% else %}
+      <title>{{ site.title }}</title>
+    {% endif %}
+
+    <!-- Include error.css file -->
+    {% capture error %}
+    {% include error.css %}
+    {% endcapture %}
+    <style>{{ error }}</style>
   </head>
   <body class="error">
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12">
-          {{ content }}
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-12">
-          <a href="{{ site.url }}{{ site.baseurl }}">Go to the front page →</a>
-        </div>
-      </div>
-    </div>
+    {{ content | strip }}
   </body>
 </html>

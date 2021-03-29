@@ -6,7 +6,7 @@ layout: compress
 
   {% comment %} Loop through index pages first {% endcomment %}
 
-  {% assign pages = (site.pages | sort: "order" | where: "group" , "index") %}
+  {% assign pages = site.pages | sort: "order" | where: "group" , "index" %}
   {% for p in pages %}
     {% if p.sitemap.exclude != "yes" %}
       <url>
@@ -64,12 +64,12 @@ layout: compress
   {% endfor %}
 
 
-  {% comment %} loop through About Painting Drawing Playground Contact pages {% endcomment %}
+  {% comment %} loop through About, Contact and Reference pages {% endcomment %}
 
   {% assign pages = site.pages | sort: 'order' %}
   {% for p in pages %}
     {% if p.sitemap.exclude != "yes" %}
-      {% if p.group == "painting" or p.group == "drawing" or p.group == "playground" or p.group == "about" or p.group == "contact" %}
+      {% if p.group == "about" or p.group == "contact" or p.group == "reference" %}
 
         <url>
           <loc>{{ site.url }}{{ p.url | remove: "index.html" }}</loc>
@@ -134,7 +134,7 @@ layout: compress
   {% assign pages = site.pages | sort: 'order' %}
   {% for p in pages %}
     {% if p.sitemap.exclude != "yes" %}
-      {% if p.group == "painting-project" or p.group == "drawing-project" or p.group == "playground-project" %}
+      {% if p.group == "product-group" %}
         <url>
           <loc>{{ site.url }}{{ p.url | remove: "index.html" }}</loc>
 

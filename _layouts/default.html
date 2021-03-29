@@ -1,38 +1,58 @@
 ---
 layout: compress
 ---
-<!DOCTYPE html>
-{% if page.group == "index" or page.group == "painting" or page.group == "painting-project" or page.group == "drawing" or page.group == "drawing-project" or page.group == "playground" or page.group == "playground-project" %}
-  <html lang="{{ page.lang }}" itemtype="http://schema.org/WebPage" itemscope="">
+<!doctype html>
+{% if page.group == "index" or page.group == "painting" or page.group == "drawing" or page.group == "playground" or page.group == "playground-project" or page.group == "product-group" or page.group == "legal" %}
+  <html lang="{{ page.lang }}" itemscope itemtype="http://schema.org/WebPage">
 {% elsif page.group == "contact" %}
-  <html lang="{{ page.lang }}" itemtype="http://schema.org/ContactPage" itemscope="">
+  <html lang="{{ page.lang }}" itemscope itemtype="http://schema.org/ContactPage">
 {% elsif page.group == "about" %}
-  <html lang="{{ page.lang }}" itemtype="http://schema.org/AboutPage" itemscope="">
+  <html lang="{{ page.lang }}" itemscope itemtype="http://schema.org/AboutPage">
 {% else %}
   <html lang="{{ page.lang }}">
 {% endif %}
 {% include head.html %}
-<!-- Add dev class while development -->
+
+{% comment %} Add dev class while development {% endcomment %}
+{% assign page_class = "" %}
+
+{% if site.development == true %}
+  {% assign page_class = "dev" %}
+{% endif %}
+
+{% comment %} Add page.group class {% endcomment %}
 {% if page.group %}
-  {% if site.development == true %}
-    <body class="{{ page.group }} dev">
+  {% if page_class == "" %}
+    {% assign page_class = page.group %}
   {% else %}
-    <body class="{{ page.group }}">
-  {% endif %}
-{% else %}
-  {% if site.development == true %}
-    <body class="dev">
-  {% else %}
-    <body>
+    {% assign page_class = page_class | append: " " | append: page.group %}
   {% endif %}
 {% endif %}
+
+{% comment %} Add page.class {% endcomment %}
+{% if page.class %}
+  {% if page_class == "" %}
+    {% assign page_class = page.class %}
+  {% else %}
+    {% assign page_class = page_class | append: " " | append: page.class %}
+  {% endif %}
+{% endif %}
+
+<!-- Body -->
+{% if page_class != "" %}
+  <body class="{{ page_class }}">
+{% else %}
+  <body>
+{% endif %}
+
 {% include header.html %}
-{{ content }}
+{{ content | strip }}
 {% include footer.html %}
-<!-- JavaScript code placed at the end of the document so the pages load faster -->
-<script src="{{ "/js/scripts.js" | prepend: site.baseurl }}"></script>
+
+<!-- Google Analytics -->
 {% if site.development == false and site.google_analytics_tracking_id and site.google_analytics_tracking_id != "" %}
   {% include google-analytics.html %}
 {% endif %}
+
 </body>
 </html>
