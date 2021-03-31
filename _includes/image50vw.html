@@ -38,6 +38,11 @@
   <div class="crr r21">
 {% endif %}
 
+{% if name_ratio == "false" and basename contains "-3by1" %}
+  {% assign name_ratio = "true" %}
+  <div class="crr r31">
+{% endif %}
+
 {% if name_ratio == "false" and basename contains "-3by2" %}
   {% assign name_ratio = "true" %}
   <div class="crr r32">
